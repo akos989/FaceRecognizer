@@ -1,0 +1,32 @@
+<div *ngIf="detectedFaces.length === 0">
+  <app-choose-method *ngIf="detectionMethod === ''"
+                     (chosenMethod)="chooseMethod($event)"></app-choose-method>
+  <div *ngIf="detectionMethod !== ''" class="container mt-5">
+    <div class="form-group">
+      <div>Choose attributes to detect</div>
+      <div *ngFor="let attributes of attributeOptions" class="form-check form-check-inline">
+        <label>
+          <input type="checkbox" id="attributes" name="attributes" value="{{ attributes.name }}"
+                 [(ngModel)]="attributes.checked">
+          {{ attributes.name }}
+        </label>
+      </div>
+    </div>
+    <app-from-url *ngIf="detectionMethod === 'URL'" (imageUrl)="detectFace($event)"></app-from-url>
+    <app-webcamera *ngIf="detectionMethod === 'camera'"></app-webcamera>
+    <app-upload-photo *ngIf="detectionMethod === 'upload'" (imageFile)="detectFaceFromFile($event)"></app-upload-photo>
+  </div>
+</div>
+<div *ngIf="image" class="image-container">
+  <div>
+    <img #imageElement [src]="image" alt="">
+  </div>
+  <canvas *ngIf="detectedFaces.length > 0"
+          #canvasElement [width]="imageElement.width" [height]="imageElement.height"></canvas>
+</div>
+<div *ngIf="detectedFaces.length > 0">
+  <h1>Results</h1>
+  <div *ngFor="let detectedFace of detectedFaces">
+    <app-detection-result [detectedFace]="detectedFace"></app-detection-result>
+  </div>
+</div>

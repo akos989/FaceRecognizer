@@ -1,0 +1,13 @@
+<div class="result text-center">
+  Details about the given face:
+  <div *ngIf="detectedFace.faceAttributes">
+    <div>Attributes:</div>
+    <div *ngIf="detectedFace.faceAttributes.age">Age: {{detectedFace.faceAttributes.age}}</div>
+    <div *ngIf="detectedFace.faceAttributes.gender">Gender: {{detectedFace.faceAttributes.gender}}</div>
+    <div *ngIf="detectedFace.faceAttributes.smile">Smile: {{detectedFace.faceAttributes.smile * 100}}%</div>
+    <div *ngIf="detectedFace.faceAttributes.makeup">
+      <p>Eye Makeup: {{detectedFace.faceAttributes.makeup.eyeMakeup}}</p>
+      <p>Lip Makeup: {{detectedFace.faceAttributes.makeup.lipMakeup}}</p>
+    </div>
+  </div>
+</div>

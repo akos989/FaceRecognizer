@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  API_KEY: 'a419824011c54935971af11c85ee6cdc',
+  SERVER_URL: 'https://face-recognizer-angular.cognitiveservices.azure.com/face/v1.0'
 };
 
 /*

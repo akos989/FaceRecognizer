@@ -1,0 +1,10 @@
+<div class="mt-5 form-inline">
+  <form *ngIf="!submitted" #urlForm="ngForm" (ngSubmit)="onSubmit(urlForm)">
+    <div class="form-group">
+      <label for="url" class="m-2">Url of photo</label>
+      <input type="text" #urlInput name="url" id="url" required ngModel class="form-control m-2">
+      <input [disabled]="!urlForm.valid" class="btn btn-success m-2" type="submit" value="Detect faces">
+    </div>
+    <img [src]="urlInput.value" alt="">
+  </form>
+</div>

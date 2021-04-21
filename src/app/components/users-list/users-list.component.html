@@ -1,0 +1,15 @@
+<div class="text-center mb-5">
+  <button class="btn btn-success">Register new user</button>
+</div>
+<div class="list-group">
+  <div *ngFor="let user of users"
+       [ngClass]="user === currentUser ? 'active': ''"
+    class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{ user.name }}</h5>
+      <small>{{ user.persistedFaceIds.length }} image</small>
+    </div>
+    <p class="mb-1">{{ user.userData }}</p>
+    <small *ngIf="user === currentUser">This is the currently logged in user</small>
+  </div>
+</div>

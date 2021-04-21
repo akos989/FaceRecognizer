@@ -57,6 +57,14 @@
  */
 import 'zone.js/dist/zone';  // Included with Angular CLI.
 
+// able to use process to access env variables
+(window as any).process = {
+  env: { DEBUG: undefined },
+};
+
+(window as any).global = window;
+(window as any).global.Buffer = (window as any).global.Buffer || require('buffer').Buffer;
+
 
 /***************************************************************************************************
  * APPLICATION IMPORTS

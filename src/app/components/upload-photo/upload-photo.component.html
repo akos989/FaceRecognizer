@@ -1,0 +1,10 @@
+<div class="mt-5 form-inline">
+  <form *ngIf="!submitted" #imageForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="file" class="m-2">Upload photo from device</label>
+      <input type="file" accept="image/*"
+             name="file" id="file" required ngModel class="form-control m-2">
+      <input [disabled]="!imageForm.valid" class="btn btn-success m-2" type="submit" value="Detect faces">
+    </div>
+  </form>
+</div>
